@@ -1,11 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OilSite</title>
-</head>
-<body>
-    <h1> First Django Set Up</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    
+
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main>
+
+        <!------------------------ Site Title ---------------------->
+
+        <!-- <section class="site-title">
+            <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+                <h3>Tours & Travels</h3>
+                <h1>Amazing Place on Earth</h1>
+                <button class="btn">Explore</button>
+            </div>
+        </section> -->
+
+        <!------------x----------- Site Title ----------x----------->
+
+       
+
+        <!-- ---------------------- Site Content -------------------------->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    {% for obj in object_list %}
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="{{ obj.thumbnail.url }}" class="img" alt="blog1">
+                            </div>
+                           
+                        </div>
+                        <div class="post-title">
+                            <a href=" {{ obj.get_absolute_url }}"> {{ obj.title }} </a>
+                            <p style="text-align:justify">
+                                {{ obj.overview|linebreaks|truncatechars:150 }}
+                            </p>
+                            <button class="btn post-btn"> <a href="{{ obj.get_absolute_url }}"> Read More  </a> &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    {% if object_list.paginator.num_pages > 1 %}
+
+    <!-- start -->
+    {% include '_pagination.html' with items=object_list %}
+    <!-- end -->
+
+{% endif %}
+                    
+                    
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Category</h2>
+                        <ul class="category-list">
+                            
+                            
+                            {% for cat in category %}
+                            <li class="list-items"  >
+                                
+                                <a href=" {% url 'category' cat.title|slugify %} " style="text-align:center;"> {{ cat.title }}</a>
+                                <!--<span>( {{ cat.title__count }} )</span>-->
+
+                            </li>
+                            
+                            
+                            {% endfor %}
+                                
+                            
+                            
+                        </ul>
+                    </div>
+                    <div class="popular-post">
+                        <h2>Recent Post</h2>
+
+                        
+                        {% for obj in recent %}
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src=" {{ obj.thumbnail.url }} " class="img" alt="blog1">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;
+                                        {{ obj.timestamp|timesince}}
+                                    </span>
+                                    <span>2 Comments</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href=" {% url 'post-detail' pk=obj.pk %} ">  {{ obj.title }} </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                            
+                       
+                        
+                    </div>
+                    <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                        <h2>Newsletter</h2>
+                        <div class="form-element">
+                            <input type="text" class="input-element" placeholder="Email">
+                            <button class="btn form-btn">Subscribe</button>
+                        </div>
+                    </div>
+                    <!-- <div class="popular-tags">
+                        <h2>Popular Tags</h2>
+                        <div class="tags flex-row">
+                            <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="200">technology</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="300">travel</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="400">illustration</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="500">design</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="600">lifestyle</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="700">love</span>
+                            <span class="tag" data-aos="flip-up" data-aos-delay="800">project</span>
+                        </div>
+                    </div> -->
+                </aside>
+            </div>
+        </section>
+
+        <!-- -----------x---------- Site Content -------------x------------>
+
+    </main>
+
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+
+{% endblock content %}
+    
