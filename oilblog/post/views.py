@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,DetailView
+from django.shortcuts import (render,
+                                get_object_or_404,
+                                redirect,
+                                reverse,
+                                Http404)
 
 
 from django.core.paginator import Paginator 
@@ -28,3 +33,12 @@ def index(request):
     return render(request,
                   'index.html',
                   context)
+
+class PostDetailView(DetailView):
+    template_name = 'posts/post-detail.html'
+    def get_object(self, *args, **kwargs):
+        pk = self.kwargs.get('pk')
+        instance = Post.objects.get_by_id(pk)
+        if instance is None:
+            raise Http404("Post doesn't exist")
+        return instance

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="post-title">
+    <a href=""> {{ post.title }}</a>
+    <p style="text-align: justify;">
+        {{ object.overview|linebreaks }}
+    </p>
+    <p style="text-align: justify;">
+      {{ object.content}}
+  </p>
+</div>
+
+{% endblock content %}
