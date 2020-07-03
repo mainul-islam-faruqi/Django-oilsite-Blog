@@ -18,7 +18,7 @@ class IndexView(TemplateView):
 def index(request):
     posts = Post.objects.all()
     recent = Post.objects.order_by('-timestamp')[0:30]
-    # category = Category.objects.all()
+    category = Category.objects.all()
 
     paginator = Paginator(posts, 9)
     page = request.GET.get('page')
@@ -27,7 +27,7 @@ def index(request):
     context = {
         'object_list': posts,
         'recent':recent,
-        # 'category': category,
+        'category': category,
     }
 
     return render(request,
@@ -42,3 +42,11 @@ class PostDetailView(DetailView):
         if instance is None:
             raise Http404("Post doesn't exist")
         return instance
+
+def CategoryView(request, cats):
+    
+    category_post = Post.objects.filter(categories__title=cats.replace('-',' '))
+    context = {"category_post":category_post }
+    return render(request, 'posts/category.html', context)
+
+

@@ -2,14 +2,142 @@
 
 {% load static %}
 {% block content %}
-<div class="post-title">
-    <a href=""> {{ post.title }}</a>
-    <p style="text-align: justify;">
-        {{ object.overview|linebreaks }}
-    </p>
-    <p style="text-align: justify;">
-      {{ object.content}}
-  </p>
-</div>
+<main> 
+  <section class="container">
+      <div class="site-content">
+          <div class="posts" style="">
+            
+              <div class="post-content" >
+                  <div class="post-image">
+                      <div>
+                          <img src=" {{ object.thumbnail.url }} " class="img" alt="blog1">
+                      </div>
+                      <div style="padding:16px 30px;" class="post-info flex-row">
+                          <span >
+                           
+                              <i class=""> 
+                                  <img style="width:20px; height:20px; 
+                                  border-radius:100%; float:left;margin-left:-15px;"
+                                   src="{{ post.author.profile_picture.url }}">
+                              </i>&nbsp;&nbsp; {{ object.author }}
+                          </span>
+                          <span>
+                              <i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp; {{ object.timestamp}}
+                          </span>
+                          <span>{{ object.comments.count }} Comments</span>
+                      </div>
+                  </div>
+                  <div class="post-title">
+                      <a href=""> {{ post.title }}</a>
+                      <p style="text-align: justify;">
+                          {{ object.overview|linebreaks }}
+                      </p>
+                      <p style="text-align: justify;">
+                        {{ object.content}}
+                    </p>
+                  </div>
+              </div>
+              <hr>
+
+              <header>
+                <!-- <h3 class="h6">Post Comments<span class="no-of-comments">({{ post.approve_comments.count }})</span></h3> -->
+              </header>
+
+          
+              
+            
+              <div class="add-comment">
+                <header>
+                  <h3 class="h6">Leave a reply</h3>
+                </header>
+                <form method="POST" action="." class="form-control">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="form-control col-md-12" ">
+                      <div class="fb-comments" data-href="http://127.0.0.1:8000/post/{{post.pk}}" data-numposts="5" data-width=""></div>
+
+                     
+                
+                      </div>
+                    <div class="form-group col-md-12">
+                      <!-- <button style="margin: 20px 0px;" type="submit" class="btn form-btn">Submit Comment</button> -->
+                    </div>
+                  </div>
+                </form>
+
+                <div style="margin: 20px auto 20px 0;" class="fb-share-button" data-href="http://127.0.0.1:8000/post/{{ post.pk }}/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fpost%2F9%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+              </div>
+              
+          </div>
+
+          <aside class="sidebar">
+              <div class="category">
+                  <h2>Category</h2>
+                  <ul class="category-list">
+                    
+                    {% for cat in category_count %}
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                
+                                
+                               
+
+                            </li>
+                            
+                            {% endfor %}
+                     
+                  </ul>
+              </div>
+              <div class="popular-post">
+                <h2>Recent Post</h2>
+
+                
+                {% for obj in recent %}
+                <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                    <div class="post-image">
+                        <div>
+                            <img src=" {{ obj.thumbnail.url }} " class="img" alt="blog1">
+                        </div>
+                        <div class="post-info flex-row">
+                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;
+                                {{ obj.timestamp|timesince}}
+                            </span>
+                            <span>2 Comments</span>
+                        </div>
+                    </div>
+                    <div class="post-title">
+                        <a href=" {% url 'post-detail' pk=obj.pk %} ">  {{ obj.title }} </a>
+                    </div>
+                </div>
+                {% endfor %}
+                    
+               
+                
+            </div>
+             
+              <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                  <h2>Newsletter</h2>
+                  <div class="form-element">
+                      <input type="text" class="input-element" placeholder="Email">
+                      <button class="btn form-btn">Subscribe</button>
+                  </div>
+              </div>
+              <!-- <div class="popular-tags">
+                  <h2>Popular Tags</h2>
+                  <div class="tags flex-row">
+                      <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="200">technology</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="300">travel</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="400">illustration</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="500">design</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="600">lifestyle</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="700">love</span>
+                      <span class="tag" data-aos="flip-up" data-aos-delay="800">project</span>
+                  </div>
+              </div> -->
+          </aside>
+      </div>
+  </section>
+  </main>
+
 
 {% endblock content %}

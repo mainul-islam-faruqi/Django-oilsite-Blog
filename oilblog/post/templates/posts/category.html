@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<main>
+    <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    {% for obj in category_post %}
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="{{ obj.thumbnail.url }}" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span>
+                                    <i class=""> 
+                                        <img style="width:20px; 
+                                                    height:20px; 
+                                                    border-radius:100%;
+                                                    float:left;
+                                                    margin-left:-15px;"
+                                                    src="{{ obj.author.profile_picture.url }}">
+                                                </i>&nbsp;&nbsp; {{ obj.author }} </span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp; {{ obj.timestamp }} </span>
+                                <span>2 Commets</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href=" {{ obj.get_absolute_url }} "> {{ obj.title }} </a>
+                            <p>
+                                {{ obj.overview|linebreaks|truncatechars:200 }}
+                            </p>
+                            <button class="btn post-btn"> <a href=" {{ obj.get_absolute_url }} ">Read More  </a> <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    
+                    </div>
+                          </div>
+        </section>
+
+        <!-- -----------x---------- Site Content -------------x------------>
+
+    </main>
+
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+
+
+
+{% endblock content %}

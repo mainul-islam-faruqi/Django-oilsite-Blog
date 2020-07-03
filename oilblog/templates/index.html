@@ -46,14 +46,12 @@
                             
                             
                             {% for cat in category %}
-                            <li class="list-items"  >
+                            <li class="list-items" >
                                 
-                                <!-- <a href=" {% url 'category' cat.title|slugify %} " style="text-align:center;"> {{ cat.title }}</a> -->
-                                <!--<span>( {{ cat.title__count }} )</span>-->
+                                <a href=" {% url 'post:category' cat.title %} "> {{ cat.title }}</a>
+                            <!-- <span>( {{ cat.title__count }} )</span> -->
 
-                            </li>
-                            
-                            
+                            </li>     
                             {% endfor %}
                        
                         </ul>
@@ -76,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="post-title">
-                                <!-- <a href="  ">  {{ obj.title }} </a> -->
+                                <a href="  ">  {{ obj.title }} </a>
                             </div>
                         </div>
                         {% endfor %}
@@ -91,14 +89,7 @@
                             <button class="btn form-btn">Subscribe</button>
                         </div>
                     </div>
-                    <!-- <div class="popular-tags">
-                        <h2>Popular Tags</h2>
-                        <div class="tags flex-row">
-                            <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
-                           <span class="tag" data-aos="flip-up" data-aos-delay="700">love</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="800">project</span>
-                        </div>
-                    </div> -->
+                 
                 </aside>
             </div>
         </section>

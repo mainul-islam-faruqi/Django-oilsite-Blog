@@ -21,11 +21,8 @@ class Author(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length = 30)
 
-    def get_absolute_url(self):
-        return reverse('post-list', kwargs={'pk':self.pk})
-
     def __str__(self):
-        return f"{self.title} "
+        return f"{self.title}"
 
 class Comment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
