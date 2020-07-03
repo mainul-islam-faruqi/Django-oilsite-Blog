@@ -18,7 +18,7 @@ class IndexView(TemplateView):
 def index(request):
     posts = Post.objects.all()
     recent = Post.objects.order_by('-timestamp')[0:30]
-    category = Category.objects.all()
+    # category = Category.objects.all()
 
     paginator = Paginator(posts, 9)
     page = request.GET.get('page')
@@ -27,7 +27,7 @@ def index(request):
     context = {
         'object_list': posts,
         'recent':recent,
-        'category': category,
+        # 'category': category,
     }
 
     return render(request,
