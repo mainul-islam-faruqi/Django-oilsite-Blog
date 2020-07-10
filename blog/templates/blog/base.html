@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Site Metas -->
+    <title> Oil4us|Essential OiL
+
+        {% block title %}
+          
+        {% endblock title %}
+    </title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- Design fonts -->
+    <script src="https://kit.fontawesome.com/9c9070f2d9.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- FontAwesome Icons core CSS -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href=" {% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Responsive styles for this template -->
+    <link href=" {% static 'css/responsive.css' %} " rel="stylesheet">
+
+    <!-- Colors for this template -->
+    <link href=" {% static 'css/colors.css' %} " rel="stylesheet">
+
+    <!-- Version Garden CSS for this template -->
+    <link href=" {% static 'css/version/garden.css' %} " rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0"></script>
+
+    {% block extrahead %}
+
+    {% endblock extrahead %}
+
+    <style>
+        .nav-item .nav-link{
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #464646 !important;
+            padding: 0 1rem !important;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+
+            <div class="collapse top-search" id="collapseExample">
+        <div class="card card-block">
+            <div class="newsletter-widget text-center">
+                <form class="form-inline">
+                    <input type="text" class="form-control" placeholder="What you are looking for?">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </form>
+            </div><!-- end newsletter -->
+        </div>
+    </div><!-- end top-search -->
+
+    <div class="topbar-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">
+                    <div class="topsocial">
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i class="fa fa-flickr"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><i class="fa fa-google-plus"></i></a>
+                    </div><!-- end social -->
+                </div><!-- end col -->
+
+                <div class="col-lg-4 hidden-md-down">
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="topsearch text-right">
+                        <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
+                    </div><!-- end search -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end header-logo -->
+    </div><!-- end topbar -->
+
+    <div class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="logo">
+                        <a href="garden-index.html"><img style="width: 20%;" src="{% static 'images/oil4us.jpg' %}" alt=""></a>
+                    </div><!-- end logo -->
+                </div>
+            </div><!-- end row -->
+        </div><!-- end header-logo -->
+    </div><!-- end header -->
+
+    <header class="header">
+        <div class="container">
+   
+
+
+            <nav class="navbar navbar-expand-lg navbar-light ">
+               
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav" >
+                    <li class="nav-item ">
+                      <a class="nav-link color-green-hover"  href="#">Home </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link color-green-hover" href="#">Essential Oil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link color-green-hover" href="#">Olive Oil</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link color-green-hover" href="#">Coconut Oil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link color-green-hover" href="#">Q&A  </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link color-green-hover" href="#">Contact</a>
+                      </li>
+                    
+                  </ul>
+                </div>
+              </nav>
+
+               
+           
+        
+        </div><!-- end container -->
+    </header><!-- end header -->
+
+
+
+        {% block content %}
+
+        {% endblock content %}
+    
+    </div><!-- end wrapper -->
+
+
+
+    <!-- ---------------------------  Navigation ---------------------------------------------- -->
+
+    <!-- <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="  " class="text-gray">Blooger</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="  ">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Nutrition</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Major Oil</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Essential oil</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav> -->
+
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+
+
+
+    <!-- --------------------------- Footer ---------------------------------------- -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2> Like on Facebook </h2>
+                <div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="380"
+                    data-hide-cover="false" data-show-facepile="false"></div>
+                <!-- <div class="flex-row">
+                    <img src="./assets/instagram/thumb-card3.png" alt="insta1">
+                    <img src="./assets/instagram/thumb-card4.png" alt="insta2">
+                    <img src="./assets/instagram/thumb-card5.png" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="./assets/instagram/thumb-card6.png" alt="insta4">
+                    <img src="./assets/instagram/thumb-card7.png" alt="insta5">
+                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">
+                </div> -->
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-white text-center">
+                Copyright ©2020 <a href="www.answarit.com"> Answarit </a> All rights reserved | Developed by
+                <a href="www.youtube.com/c/" target="_black">Mainul Islam 
+                    Faruqi</a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- -------------x------------- Footer --------------------x------------------- -->
+
+    <!-- Jquery Library file -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- ---------  ------------------->
+    <script src="{% static 'js/tether.min.js' %}"></script>
+    <!-- ------------  ------------------------- -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Custom Javascript file -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+</html>
