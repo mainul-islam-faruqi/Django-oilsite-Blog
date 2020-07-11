@@ -333,7 +333,7 @@
             <h4 class="small-title">Leave a Reply</h4>
             <div class="row">
                 <div class="col-lg-12">
-                    <form  method="POST" action="." class="form-wrapper" style="border: 1px solid #ddd;">
+                    <form  method="POST" action="." class="form-wrapper" style="border: 1px dashed #ddd;">
                       {% csrf_token %}
                       <div style="padding: 0 .5rem; " class=" fb-comments"
                         data-href="http://127.0.0.1:8000/{{post.publish.day}}/{{post.slug}}" data-numposts="5"
