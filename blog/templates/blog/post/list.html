@@ -1,5 +1,15 @@
 {% extends "blog/base.html" %}
 {% block title %}|Home {% endblock %}
+{% block extrahead %}
+<style>
+   @media only screen and (max-width: 768px) {
+    .post-media img {
+    width:30rem;
+}
+}
+</style>
+{% endblock extrahead %}
+
 {% block content %}
 
 <section class="section wb">
@@ -14,15 +24,15 @@
                             <div class="col-md-4">
                                 <div class="post-media">
                                     <a  href="{{ obj.get_absolute_url }}" title="">
-                                        <!-- style="width: 15rem; height: 13rem;"  -->
-                                        <img src="{{ obj.thumbnail.url }}" alt="" class="rounded img-fluid">
-                                        <div class="hovereffect"></div>
+                                        <!--  -->
+                                        <img   src="{{ obj.thumbnail.url }}" alt="" class="rounded img-fluid">
+                                        <div class=""></div>
                                     </a>
                                 </div><!-- end media -->
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <span class="bg-aqua"><a href="garden-category.html" title=""> Essential Oil</a></span>
+                                <span class="bg-aqua"><a href="" title=""> Essential Oil</a></span>
                                     
                                     
                                       {% for tag in obj.tags.all %}

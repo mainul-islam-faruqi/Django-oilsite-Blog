@@ -46,6 +46,8 @@
 }
 
 @media (max-width: 768px) {
+    .nav-item .nav-link {
+}
     .post-sharing .btn {
         padding: 0.6rem !important;
     }

@@ -631,10 +631,7 @@ footer.footer{
     position: relative;
 }
 
-footer.footer .container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
+
 
 footer.footer .container > div{
     flex-grow: 1;
@@ -721,7 +718,7 @@ footer.footer .move-up span:hover{
 }
 
 .footer.wb .hovereffect {
-    opacity: 0.1;
+    opacity: 0;
     background-color: rgba(0, 0, 0, 0.0.1);
 }
 
@@ -1340,7 +1337,7 @@ hr.invis3 {
     transition: all .3s ease-in-out;
     zoom: 1;
     filter: alpha(opacity=0);
-    opacity: 0.5;
+    opacity: 0;
     background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%);
     background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%);
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%);
@@ -1789,4 +1786,9 @@ hr.invis3 {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%
+}
+
+@media only screen and (max-width: 768px) {
+    footer.footer .container {
+    }
 }

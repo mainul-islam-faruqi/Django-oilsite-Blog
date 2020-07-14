@@ -196,3 +196,8 @@
         left: auto;
     }
 }
+@media only screen and (max-width: 768px) {
+    footer.footer .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
