@@ -46,6 +46,8 @@
 }
 
 @media (max-width: 768px) {
+    .nav-item .nav-link {
+}
     .post-sharing .btn {
         padding: 0.6rem !important;
     }
@@ -194,10 +196,5 @@
     .header .navbar-nav .has-submenu > ul li ul.show-right {
         right: 130%;
         left: auto;
-    }
-}
-@media only screen and (max-width: 768px) {
-    footer.footer .container {
-        grid-template-columns: repeat(1, 1fr);
     }
 }

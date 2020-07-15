@@ -631,10 +631,7 @@ footer.footer{
     position: relative;
 }
 
-footer.footer .container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
+
 
 footer.footer .container > div{
     flex-grow: 1;

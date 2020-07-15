@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from taggit.managers import TaggableManager
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 
@@ -26,7 +27,7 @@ class Post(models.Model):
                                  on_delete=models.CASCADE,
                                  related_name='blog_posts')
     # body     = models.TextField()
-    body     = RichTextField(blank=True, null=True)
+    body     = RichTextUploadingField(blank=True, null=True, db_index=True)
     thumbnail= models.ImageField()
     publish  = models.DateField( default =timezone.now)
     # timezone.now method returns current datetime

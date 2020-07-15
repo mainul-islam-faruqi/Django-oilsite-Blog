@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
-
     'taggit',
-    'ckeditor'
+    'ckeditor',
+    'ckeditor_uploader',
 
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,7 +132,9 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR,"static-in-env")
 
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL  = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+CKEDITOR_UPLOAD_PATH = 'uploads_directory/'
 
 
