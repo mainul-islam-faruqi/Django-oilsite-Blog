@@ -43,8 +43,8 @@
             <h3>{{ post.title }}</h3>
 
             <div class="blog-meta big-meta">
-              <small><a href="garden-single.html" title="">21 July, 2017</a></small>
-              <small><a href="blog-author.html" title="">by Jessica</a></small>
+              <small><a href="garden-single.html" title="">{{post.publish|date:"d F Y" }} </a></small>
+              <small><a href="blog-author.html" title="">by {{post.author }}</a></small>
               <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>
             </div><!-- end meta -->
 
@@ -65,7 +65,7 @@
           </div><!-- end title -->
 
           <div class="single-post-media">
-            <img  src="{{ post.thumbnail.url }} " alt="" class="img-fluid">
+            <img src="{{ post.thumbnail.url }} " alt="" class="img-fluid">
           </div><!-- end media -->
 
           <div class="blog-content">
@@ -81,9 +81,16 @@
               {% endif %}
               {{ post.body|safe }}
               </p>
-              
             </div><!-- end pp -->
-    
+
+            <img src="upload/garden_single_02.jpg" alt="" class="img-fluid img-fullwidth">
+
+            <div class="pp">
+                
+              <p><img src="upload/garden_single_03.jpg" class="float-left" width="340" alt="">
+              </p>
+              
+              
               <h5 style="display: flex; flex-direction: row; width: 100%; "> Was this post helpful?
                 <div class="like-unlike">
                   <form style="display: flex; flex-direction: row; margin-top:-.2rem;" action="" method="POST">
@@ -144,9 +151,6 @@
               {% for tag in tags %}
               <small><a href="{% url 'blog:post_list_by_tag' tag.slug %}" title="">{{ tag.name }}</a></small>
               {% endfor %}
-              <small><a href="#" title="">colorful</a></small>
-              <small><a href="#" title="">trending</a></small>
-              <small><a href="#" title="">another tag</a></small>
             </div><!-- end meta -->
 
 
@@ -335,7 +339,7 @@
                   <div class="w-100 justify-content-between">
                     <img style="width: 4.5rem;height:4rem;" src="{{ obj.thumbnail.url }}" alt=""
                       class="img-fluid float-left">
-                    <h5 class="mb-1"> {{ obj.title|truncatechars:28  }} </h5>
+                    <h5 class="mb-1"> {{ obj.title|truncatechars:60 }} </h5>
                     <small>{{ obj.publish}}</small>
                   </div>
                 </a>

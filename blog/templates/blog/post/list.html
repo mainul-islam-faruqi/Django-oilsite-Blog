@@ -1,15 +1,5 @@
 {% extends "blog/base.html" %}
 {% block title %}|Home {% endblock %}
-{% block extrahead %}
-<style>
-   @media only screen and (max-width: 768px) {
-    .post-media img {
-    width:30rem;
-}
-}
-</style>
-{% endblock extrahead %}
-
 {% block content %}
 
 <section class="section wb">
@@ -24,9 +14,8 @@
                             <div class="col-md-4">
                                 <div class="post-media">
                                     <a  href="{{ obj.get_absolute_url }}" title="">
-                                        <!--  -->
-                                        <img   src="{{ obj.thumbnail.url }}" alt="" class="rounded img-fluid">
-                                        <div class=""></div>
+                                        <img style="width: 15rem; height: 13rem;" src="{{ obj.thumbnail.url }}" alt="" class="w-100 rounded img-fluid">
+                                        <div class="hovereffect"></div>
                                     </a>
                                 </div><!-- end media -->
                             </div><!-- end col -->
@@ -37,7 +26,7 @@
                                     
                                       {% for tag in obj.tags.all %}
                                         <span class="bg-aqua">
-                                            <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                                            <a href="{% url "blog:post_list_by_tag" tag.slug %}" target="_blank">
                                                 {{ tag.name }}
                                             
                                             </a>
@@ -46,10 +35,11 @@
                                      {% endfor %}
                                     
                                 <h4><a href="{{ obj.get_absolute_url }}" title=""> {{ obj.title|truncatechars:90 }}</a></h4>
-                                <p>{{ obj.body|linebreaks|truncatechars:180 }}</p>
-                                <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
-                                <small><a href="{{ obj.get_absolute_url }}" title="">11 July, 2017</a></small>
-                                <small><a href="#" title="">by Matilda</a></small> <br>
+                                <p style="background-color:none;">{{ obj.body|striptags|truncatechars:180 }}</p>
+                                <small><a href="  " title=""><i class="fa fa-eye"></i>1289 </a></small>
+                                <small><a href="{{ obj.get_absolute_url }}" title=""> {{obj.publish|date:"d F Y" }} </a></small>
+                                <small><a href="#" title="">by 
+                                {{obj.author}}</a></small> <br>
                                 <!-- <button class="btn post-btn rounded text-dark"> <a href="{{ obj.get_absolute_url }}"> Read More </a> 
                                     <i class="fas fa-arrow-right"></i></button> -->
                             </div><!-- end meta -->
@@ -77,21 +67,9 @@
                 </div><!-- end page-wrapper -->
 
                 <hr class="invis">
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-start">
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div><!-- end col -->
-                </div><!-- end row -->
+                
+                {% include "pagination.html" with page=posts %}
+                
             </div><!-- end col -->
 
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
@@ -114,7 +92,7 @@
                                 <a href="{{ obj.get_absolute_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img style="width: 4.5rem;height:4rem;" src="{{ obj.thumbnail.url }}" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1"> {{ obj.title|truncatechars:28  }}  </h5> 
+                                        <h5 class="mb-1"> {{ obj.title|truncatechars:60 }}  </h5> 
                                         <small>{{ obj.publish}}</small>
                                     </div>
                                 </a>
@@ -172,108 +150,6 @@
 </section>
 
 
-
-<main>
-
-    <!-- ---------------------- Site Content -------------------------->
-
-    <!-- <section class="container">
-        <div class="site-content">
-            <div class="posts" style="border-right: 1px solid #ddd;">
-                {% for obj in posts %}
-                <div class="post-content" style="display: flex; flex-direction: row;" >
-                    <div class="post-image">
-                        <div style="width: 18rem; height: 18rem; ">
-                            <img  src="{{ obj.thumbnail.url }}" class="img" alt="blog1">
-                        </div>
-                        
-                    </div>
-                    <div class="post-title">
-                        <a href=" {{ obj.get_absolute_url }} "> {{ obj.title }} </a>
-                        <p>
-                            {{ obj.overview|linebreaks|truncatechars:200 }}
-                        </p>
-                        <button class="btn post-btn"> <a href="{{ obj.get_absolute_url }}"> Read More </a> &nbsp;
-                            <i class="fas fa-arrow-right"></i></button>
-
-                            <p class="tags">
-                                Tags:
-                                {% for tag in obj.tags.all %}
-                                <a href="{% url "blog:post_list_by_tag" tag.slug %}">
-                                {{ tag.name }}
-                                </a>
-                                {% if not forloop.last %}, {% endif %}
-                                {% endfor %}
-                                </p>
-                    </div>
-                </div>
-               
-                <hr>
-
-                {% endfor %}
-
-
-                {% include "pagination.html" with page=object_list %}
-            </div>
-            <aside class="sidebar">
-                <div class="category">
-                    <h2>Category</h2>
-                    <ul class="category-list">
-                        {% for tag in tags %}
-                        <li class="list-items" data-aos="fade-left" data-aos-delay="100">
-                            <a href="{% url 'blog:post_list_by_tag' tag.slug %}">
-                                {{ tag.name }}
-                                </a>
-                            <span>( {{ tag.tags__name__count }} )</span>
-                        </li>
-                        {% endfor %}
-
-                    </ul>
-                </div>
-                <div class="popular-post">
-                    <h2>Recent Post</h2>
-
-
-                    {% for obj in recent %}
-                    <div class="post-content" data-aos="flip-up" data-aos-delay="200">
-                        <div class="post-image">
-                            <div>
-                                <img src=" {{ obj.thumbnail.url }} " class="img" alt="blog1">
-                            </div>
-                            <div class="post-info flex-row">
-                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;
-                                    {{ obj.timestamp|timesince}}
-                                </span>
-                                <span>2 Comments</span>
-                            </div>
-                        </div>
-                        <div class="post-title">
-                            <a href=" {{ obj.get_absolute_url }} "> {{ obj.title }} </a>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-
-                </div>
-                <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
-                    <h2>Newsletter</h2>
-                    <div class="form-element">
-                        <input type="text" class="input-element" placeholder="Email">
-                        <button class="btn form-btn">Subscribe</button>
-                    </div>
-                </div>
-               
-            </aside>
-        </div>
-
-
-    </section> -->
-
-
-    <!-- -----------x---------- Site Content -------------x------------>
-
-</main>
 
 
 
