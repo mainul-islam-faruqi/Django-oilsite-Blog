@@ -80,6 +80,8 @@
               </div>
               {% endif %}
               {{ post.body|safe }}
+
+
               </p>
             </div><!-- end pp -->
 
@@ -115,33 +117,16 @@
                       <span> {{ total_unlikes }} 0 </span>
                     </div>
 
-                    <!-- {% if liked %}
-                      <div style="display: flex; flex-direction: row; align-items: center; margin-right: 1rem;"
-                        class="like">
-                        <button type="submit" name="post_id" value=" {{post.id}} " style="border:none;background:none;">
-                          <i style=" border: 1px solid #ddd; padding:.3rem; margin-bottom:.2rem;" class="fa fa-thumbs-down"
-                            aria-hidden="true"></i>
-                        </button>
-                        <span> {{ total_likes }} likes </span>
-                      </div>
-    
-    
-    
-                      {% else %}
-                      <div style="display: flex; flex-direction: row; align-items: center; margin-right: 1rem;"
-                        class="like">
-                        <button type="submit" name="post_id" value=" {{post.id}} " style="border:none;background:none;">
-                          <i style=" border: 1px solid #ddd; padding:.3rem; margin-bottom:.2rem;" class="fa fa-thumbs-up"
-                            aria-hidden="true"></i>
-                        </button>
-                        <span> {{ total_likes }} likes </span>
-                      </div>
-    
-    
-                      {% endif %} -->
+                
                   </form>
                 </div>
               </h5>
+              <h5 class="mt-4 mb-4" id=" article-source " > Article Sources  <small id=" article-source " class="ml-2" style="font-size: 1rem;"> <i class="fas fa-plus-circle"></i>  </small> 
+              <div style="display: none;"  id=" article-source-des"> How to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancingHow to not practice emotional distancing during social distancing</div>
+              </h5>
+
+
+
             </div><!-- end pp -->
           </div><!-- end content -->
 
@@ -583,7 +568,14 @@
 {% endblock content %}
 
 
+{% block script %}
+<script>
+  document.getElementById('article-source').addEventListener("click", function(){
+      console.log("selected");
+  })
+</script>
 
+{% endblock script %}
 
 
 
