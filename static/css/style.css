@@ -436,7 +436,7 @@ div.tab button:hover {
 
 /* SECTIONS
 **************************************/
-
+/* 
 .section {
     padding: 4rem 0;
     display: block;
@@ -521,7 +521,7 @@ div.tab button:hover {
 
 .isotope,
 .isotope .isotope-item {
-    /* change duration value to whatever you like */
+    change duration value to whatever you like 
     -webkit-transition-duration: 0.8s;
     -moz-transition-duration: 0.8s;
     transition-duration: 0.8s;
@@ -617,7 +617,7 @@ div.tab button:hover {
     border-radius: 3px;
     font-size: 12px;
     padding: 0.1rem 1rem;
-}
+} */
 
 
 /* FOOTER
@@ -626,7 +626,7 @@ div.tab button:hover {
 
 /* ----------------- Footer --------------------- */
 
-footer.footer{
+/* footer.footer{
     height: 100%;
     position: relative;
 }
@@ -810,13 +810,13 @@ footer.footer .move-up span:hover{
     -ms-transition: all .7s ease-in-out;
     transition: all .7s ease-in-out;
     overflow: auto;
-}
+} 
 
 
 /* PAGES 
 **************************************/
 
-.notfound h2 {
+/*.notfound h2 {
     font-family: Comic Sans MS;
     font-size: 140px;
     padding: 0 0 1.7rem;
@@ -944,13 +944,13 @@ footer.footer .move-up span:hover{
     line-height: 1;
     padding: 0;
     margin: 0;
-}
+} */
 
 
 /* BLOG 
 **************************************/
 
-.carousel-indicators li {
+/* .carousel-indicators li {
     max-width: 10px;
     height: 10px;
 }
@@ -1431,13 +1431,13 @@ hr.invis3 {
 
 .blog-video-system .btn {
     margin-top: 1rem;
-}
+} */
 
 
 /* WIDGETS 
 **************************************/
 
-.sidebar .widget {
+/* .sidebar .widget {
     position: relative;
     display: block;
     margin-bottom: 3rem;
@@ -1787,4 +1787,4 @@ hr.invis3 {
     -o-border-radius: 50%;
     border-radius: 50%
 }
-
+ */
